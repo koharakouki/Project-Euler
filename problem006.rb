@@ -5,3 +5,24 @@
 # これらの数の差は 3025 - 385 = 2640 となる.
 
 # 同様にして, 最初の100個の自然数について二乗の和と和の二乗の差を求めよ.
+
+
+squared_sum = 0
+sum = 0
+
+# 二乗の和を求める
+(1..100).each do |int|
+	squared_sum += int**2
+end
+
+# 和を求める
+(1..100).each do |int|
+	sum += int
+end
+
+# 和の二乗を求める
+sum_squared = sum**2
+
+p sum_squared - squared_sum
+
+
