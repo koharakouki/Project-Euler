@@ -11,7 +11,48 @@
 # 28: 1,2,4,7,14,28
 # これから, 7番目の三角数である28は, 5個より多く約数をもつ最初の三角数であることが分かる.
 # では, 500個より多く約数をもつ最初の三角数はいくつか.
-# 三角数の公式 n番目の三角数は Tn=n(n+1)/2
-# 約数の個数の算出法
-# ある整数の約数の個数を算出する方法は、
-# 素因数分解して得られる各素数の指数から出せる
+
+# require 'prime'
+
+# n = 2
+# result = 0
+
+# # 三角数の計算
+# def triangle_number(n)
+# 	n * (n + 1) / 2
+# end
+
+# # p triangle_number(5)
+
+# # 約数の個数を求める
+# def divisor_count(n)
+# 	Prime.prime_division(n).map(&:last).map{ |i| i + 1 }.inject(:*)
+# end
+
+
+# until divisor_count(n) >= 500
+# 	result = divisor_count(n)
+# 	n += 1
+# end
+
+# p result
+
+
+require 'prime'
+
+def triangle_number(n)
+  n * (n + 1) / 2
+end
+
+def divisor_count(n)
+  Prime.prime_division(n).map(&:last).map{ |i| i + 1 }.inject(:*)
+end
+
+n = 2
+loop do
+  result = triangle_number(n)
+  break if divisor_count(result) > 500
+  n += 1
+end
+
+puts triangle_number(n)
