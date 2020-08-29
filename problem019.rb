@@ -7,3 +7,25 @@
 # 20世紀（1901年1月1日から2000年12月31日）中に月の初めが日曜日になるのは何回あるか?
 # # 西暦をy、月をm、日をdとしたとき
 
+
+
+# require 'date'
+
+# p day = Date.new(1900,1,1)
+
+# p day.strftime('%A')
+# => 'Monday'
+
+
+require 'date'
+
+start = Date.new(1901, 1, 1)
+goal = Date.new(2000, 12, 31)
+
+sum = 0
+
+start.upto(goal) do |day|
+	sum += 1 if day.day == 1 && day.sunday?
+end
+
+p sum
