@@ -4,3 +4,15 @@
 # この数の各桁の合計は 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27 である.
 
 # では, 100! の各位の数字の和を求めよ.
+
+sum = 1
+
+def factorial(num)
+  (1..num).inject(:*)
+end
+
+# p factorial(100)
+
+factorial_number = factorial(100)
+
+p factorial_number.to_s.split('').map(&:to_i).sum
