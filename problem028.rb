@@ -7,5 +7,29 @@
 # 17	16	15	14	13
 
 # 両対角線上の数字の合計は101であることが確かめられる.
-
 # 1001×1001の螺旋を同じ方法で生成したとき, 対角線上の数字の和はいくつか?
+
+
+
+# 右上が1001の2乗になる
+# 足しているのは、
+# 1
+# 3 5 7 9(2ずつ増える)
+# 13 17 21 25(4ずつ増える)
+# 31 37 43 49(6ずつ増える)
+
+def total(num)
+	return if num.even?
+	array = [num**2,num**2-(num-1),num**2-(2*num-2),num**2-(3*num-3)].reverse
+	array.sum
+end
+
+num_array = (3..1001).reject { |i| i.even? }
+
+sum = 1
+
+num_array.each do |i|
+	sum += total(i)
+end
+
+p sum
