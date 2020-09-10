@@ -7,3 +7,19 @@
 # ただし, 1=14は含まないものとする. この数たちの和は 1634 + 8208 + 9474 = 19316 である.
 
 # 各桁を5乗した数の和が元の数と一致するような数の総和を求めよ.
+
+result = 0
+
+(2..999999).each do |number|
+  num = number.to_s.split("").map(&:to_i)
+  calc_result = 0
+  num.each do |n|
+    calc_result += n ** 5
+  end
+
+  if number == calc_result
+    result =  number + result
+  end
+end
+
+puts result
