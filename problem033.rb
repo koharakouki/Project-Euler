@@ -3,3 +3,24 @@
 # 各桁の数の階乗の和が自分自身と一致するような数の和を求めよ.
 
 # 注: 1! = 1 と 2! = 2 は総和に含めてはならない.
+
+@total_array = []
+
+def check_num(num)
+  total = 0
+  num_split = num.to_s.split("").map(&:to_i)
+  num_split.each do |nums|
+    total += (1..nums).inject(1) {|result,item| result * item }
+  end
+
+  @total_array.push(total) if num == total
+end
+
+
+(3..2540160).each do |x|
+  check_num(x)
+end
+
+p @total_array.sum
+
+
