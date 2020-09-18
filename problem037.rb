@@ -1,47 +1,50 @@
-# # 3797は面白い性質を持っている. まずそれ自身が素数であり,
-# # 左から右に桁を除いたときに全て素数になっている (3797, 797, 97, 7).
-# # 同様に右から左に桁を除いたときも全て素数である (3797, 379, 37, 3).
+# # # 3797は面白い性質を持っている. まずそれ自身が素数であり,
+# # # 左から右に桁を除いたときに全て素数になっている (3797, 797, 97, 7).
+# # # 同様に右から左に桁を除いたときも全て素数である (3797, 379, 37, 3).
 
-# # 右から切り詰めても左から切り詰めても素数になるような素数は11個しかない. 総和を求めよ.
+# # # 右から切り詰めても左から切り詰めても素数になるような素数は11個しかない. 総和を求めよ.
 
-# # 注: 2, 3, 5, 7を切り詰め可能な素数とは考えない.
-
-
-require 'prime'
+# # # 注: 2, 3, 5, 7を切り詰め可能な素数とは考えない.
 
 
-
-# 左から右のメソッド
-def left(int)
-	moto = int
-	int.to_s.length.times do
-		if Prime.prime?(moto) == false
-			break
-		end
-		moto = moto.to_s.split('').shift.join.to_i
-	end
-end
-
-# if leftがtrueであればsum += int
+# require 'prime'
 
 
-# 右から左のメソッド
-# def right
 
-sum = 0
+# # 左から右のメソッド
+# def left(int)
+# 	moto = int
+# 	int.to_s.length.times do
+# 		if Prime.prime?(moto) == false
+# 			break
+# 		end
+# 		moto = moto.to_s.split('').shift.join.to_i
+# 	end
+# end
 
-(10..30).each do |i|
-	if left(i)
-		sum += i
-	end
-end
+# # if leftがtrueであればsum += int
 
-p sum
+
+# # 右から左のメソッド
+# # def right
+
+# sum = 0
+
+# (10..30).each do |i|
+# 	if left(i)
+# 		sum += i
+# 	end
+# end
+
+# p sum
+
+
 
 
 
 
 # require "prime"
+
 
 # def prime_judge(num)
 #   @i = 1
@@ -51,7 +54,7 @@ p sum
 #     @i += 1
 #   end
 #   @i = 0
-#   @result.all?{|a| a.to_s == "true" } ? true : false
+#   @result.all?{ |a| a.to_s == "true" } ? true : false
 # end
 
 # arr = (11..1000000).to_a
@@ -62,3 +65,10 @@ p sum
 # end
 
 # p arr.sum == 748317
+
+
+int = 5
+
+int.to_s.length.times do
+	p aiueo
+end
