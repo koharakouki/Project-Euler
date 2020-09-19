@@ -12,7 +12,7 @@
 
 # 整数と (1,2,...,n) (n > 1) との連結積として得られる9桁のパンデジタル数の中で最大のものはいくつか?
 
-def get_pandigital? n
+def get_pandigital?(n)
   nums = []
   (1..9).each do |digit|
     nums += (n * digit).to_s.split ''
@@ -25,7 +25,11 @@ solution = 0
 
 (9..9_876).each do |n|
   # could do better by only looking at 9's!
-  result = get_pandigital? n
+  result = get_pandigital?(n)
+  if result != 0
+  	p result
+  end
+
   if result > solution
     solution = result
   end
