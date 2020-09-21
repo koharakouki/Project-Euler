@@ -27,10 +27,12 @@ end
 
 answer = []
 
-(1000000..7654321).each do |i|
+(1000000..7654321).to_a.each do |i|
 	if i.prime? && pandigital(i)
 		answer << i
 	end
 end
+
+p answer
 
 p answer.max
