@@ -7,3 +7,17 @@
 
 # 五角数のペア Pj と Pk について,
 # 差と和が五角数になるものを考える. 差を D = |Pk - Pj| と書く. 差 D の最小値を求めよ.
+
+i = 0
+five_arr = []
+while i <= 3000 do
+  i += 1
+  five_arr << i*(3*i-1)/2
+end
+
+answer = []
+five_arr.combination(2).to_a.each do |f|
+  answer << (f[1] - f[0]).abs if five_arr.include?(f.sum) && five_arr.include?((f[1] - f[0]).abs)
+end
+
+p answer
