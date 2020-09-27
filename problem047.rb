@@ -10,3 +10,21 @@
 # 646 = 2 × 17 × 19
 
 # 最初に現れるそれぞれ4つの異なる素因数を持つ連続する4つの数を求めよ. その最初の数はいくつか?
+
+require 'prime'
+@answer = []
+
+def continuous_number(num)
+  if num.prime_division.size != 4
+    @answer = []
+    return
+  else
+    @answer << num
+  end
+  return if @answer.size == 4
+end
+
+(1..1000000).each do |i|
+	continuous_number(i)
+	p @answer.first if @answer.size == 4
+end
