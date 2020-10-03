@@ -9,3 +9,22 @@
 
 # 1 ≤ n ≤ 100 について, 100万を超える nCr は何通りあるか?
 
+class Integer
+	# 階乗
+  def factorial
+    (1..self).inject(1,:*)
+  end
+end
+
+j, answer = 0, 0
+100.times do |i|
+  i += 1
+  while j < i do
+    j += 1
+    total_number =  i.factorial / j.factorial / (i-j).factorial
+    answer += 1 if total_number > 1000000
+  end
+  j = 0
+end
+
+p answer
