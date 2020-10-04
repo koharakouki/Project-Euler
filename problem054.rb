@@ -41,3 +41,5 @@ answer = 0
 end
 
 p answer
+
+# 回文の問題は、まずparindromeでメソッドを作るところから始める
